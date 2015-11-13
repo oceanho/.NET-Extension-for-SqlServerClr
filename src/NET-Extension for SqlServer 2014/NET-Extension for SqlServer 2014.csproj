@@ -29,6 +29,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>sig_key.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -38,7 +44,6 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Compile Include="..\NET-Extension for SqlServer\Properties\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
@@ -49,6 +54,12 @@
     <Compile Include="..\NET-Extension for SqlServer\SqlServerClrRegister.cs">
       <Link>SqlServerClrRegister.cs</Link>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="sig_key.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="sig_key.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
