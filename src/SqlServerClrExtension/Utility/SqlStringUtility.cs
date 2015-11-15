@@ -15,13 +15,14 @@ using System.Linq;
 using System.Threading.Tasks;
 #endif
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace NET_Extension_for_SqlServer.Utility
 {
     internal static class SqlStringUtility
     {
-        #region SqlClr Methods
-        public static SqlBoolean StartsWith(SqlString src, SqlString des, StringComparison comparisonOption)
+        #region SqlString SqlClr Methods
+        internal static SqlBoolean StartsWith(SqlString src, SqlString des, StringComparison comparisonOption)
         {
             if (IsAllNull(src, des))
                 return SqlBoolean.True;
@@ -32,7 +33,7 @@ namespace NET_Extension_for_SqlServer.Utility
             src.Value.StartsWith(des.Value, comparisonOption);
         }
 
-        public static SqlBoolean EndsWith(SqlString src, SqlString des, StringComparison comparisonOption)
+        internal static SqlBoolean EndsWith(SqlString src, SqlString des, StringComparison comparisonOption)
         {
             if (IsAllNull(src, des))
                 return SqlBoolean.True;
@@ -43,14 +44,14 @@ namespace NET_Extension_for_SqlServer.Utility
             src.Value.EndsWith(des.Value, comparisonOption);
         }
 
-        public static SqlString Trim(SqlString src, SqlChars des)
+        internal static SqlString Trim(SqlString src, SqlChars des)
         {
             if (IsAllNull(des)) return src;
             if (IsAllNull(src)) return SqlString.Null;
             string _s = src.Value;
             return new SqlString(_s.Trim(des.Value));
         }
-        public static SqlString TrimStart(SqlString src, SqlChars des)
+        internal static SqlString TrimStart(SqlString src, SqlChars des)
         {
             if (IsAllNull(des)) return src;
             if (IsAllNull(src)) return SqlString.Null;
@@ -58,7 +59,7 @@ namespace NET_Extension_for_SqlServer.Utility
             return new SqlString(_s.TrimStart(des.Value));
         }
 
-        public static SqlString TrimEnd(SqlString src, SqlChars des)
+        internal static SqlString TrimEnd(SqlString src, SqlChars des)
         {
             if (IsAllNull(des)) return src;
             if (IsAllNull(src)) return SqlString.Null;
@@ -66,16 +67,31 @@ namespace NET_Extension_for_SqlServer.Utility
             return new SqlString(_s.TrimEnd(des.Value));
         }
 
-        public static SqlString TrimStartAndEnd(SqlString src, SqlChars des)
+        internal static SqlString TrimStartAndEnd(SqlString src, SqlChars des)
         {
             return TrimStartAndEnd(src, des, des);
         }
-        public static SqlString TrimStartAndEnd(SqlString src, SqlChars startDes, SqlChars endDes)
+        internal static SqlString TrimStartAndEnd(SqlString src, SqlChars startDes, SqlChars endDes)
         {
             if (IsAllNull(startDes, endDes)) return src;
             if (IsAllNull(src)) return SqlString.Null;
             string _s = src.Value;
             return new SqlString(_s.TrimStart(startDes.Value).TrimEnd(endDes.Value));
+        }
+        #endregion
+
+        #region SqlString RegularExpression SqlClr Methods
+        internal static SqlBoolean IsMatch(SqlString input, SqlString pattern, RegexOptions regexOption)
+        {
+            if (IsAllNull(input, pattern))
+                return SqlBoolean.True;
+
+            if (IsAnyNull(input, pattern))
+                return SqlBoolean.False;
+            return input.Value.Equals(pattern.Value,StringComparison.CurrentCultureIgnoreCase) ? SqlBoolean.True :
+                Regex.IsMatch(input.Value, pattern.Value, regexOption);
+
+            // RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.Singleline
         }
         #endregion
 

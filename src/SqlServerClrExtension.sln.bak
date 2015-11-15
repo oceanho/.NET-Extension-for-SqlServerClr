@@ -5,13 +5,13 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET-Extension for SqlServer", "NET-Extension for SqlServer\NET-Extension for SqlServer.csproj", "{D7EAE5ED-B6A8-4B0C-B65A-DB9A24D7E414}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET-Extension for SqlServer 2005", "NET-Extension for SqlServer 2005\NET-Extension for SqlServer 2005.csproj", "{E1C08642-93E5-48F1-9166-435B65E7073A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extension for SqlServer2005", "Extension for SqlServer2005\Extension for SqlServer2005.csproj", "{E1C08642-93E5-48F1-9166-435B65E7073A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET-Extension for SqlServer 2008", "NET-Extension for SqlServer 2008\NET-Extension for SqlServer 2008.csproj", "{1E3EB840-39FF-498F-B2DA-149B3E12B1B7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extension for SqlServer2008", "Extension for SqlServer2008\Extension for SqlServer2008.csproj", "{1E3EB840-39FF-498F-B2DA-149B3E12B1B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET-Extension for SqlServer 2012", "NET-Extension for SqlServer 2012\NET-Extension for SqlServer 2012.csproj", "{FD546B6A-FC04-4698-B412-A0A537BB9BAC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extension for SqlServer2012", "Extension for SqlServer2012\Extension for SqlServer2012.csproj", "{FD546B6A-FC04-4698-B412-A0A537BB9BAC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET-Extension for SqlServer 2014", "NET-Extension for SqlServer 2014\NET-Extension for SqlServer 2014.csproj", "{13D0C206-A382-494A-9521-2DF6BBEB8A3D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extension for SqlServer2014", "Extension for SqlServer2014\Extension for SqlServer2014.csproj", "{13D0C206-A382-494A-9521-2DF6BBEB8A3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

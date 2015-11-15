@@ -16,6 +16,14 @@ namespace NET_Extension_for_SqlServer
 {
     public static class SqlServerClrRegister
     {
+        #region IsMatch
+        [SqlFunction(DataAccess = DataAccessKind.None, SystemDataAccess = SystemDataAccessKind.None)]
+        public static SqlBoolean IsMatch(SqlString input, SqlString pattern, SqlInt32 regexOption)
+        {
+            return SqlStringUtility.IsMatch(input, pattern, (System.Text.RegularExpressions.RegexOptions)regexOption.Value);
+        }
+        #endregion
+
         #region StartsWith,EndsWith
 
         [SqlFunction(DataAccess = DataAccessKind.None, SystemDataAccess = SystemDataAccessKind.None)]
@@ -62,6 +70,6 @@ namespace NET_Extension_for_SqlServer
         {
             return SqlStringUtility.TrimStartAndEnd(src, startDes, endDes);
         }
-        #endregion
+        #endregion        
     }
 }
