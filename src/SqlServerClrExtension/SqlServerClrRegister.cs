@@ -9,10 +9,10 @@ using System.Linq;
 using System.Threading.Tasks;
 #endif
 using System.Text;
-using NET_Extension_for_SqlServer.Utility;
+using SqlServerClrExtension.Utility;
 
 
-namespace NET_Extension_for_SqlServer
+namespace SqlServerClrExtension
 {
     public static class SqlServerClrRegister
     {

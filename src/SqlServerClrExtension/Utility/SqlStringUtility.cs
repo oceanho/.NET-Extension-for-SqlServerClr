@@ -17,7 +17,7 @@ using System.Threading.Tasks;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace NET_Extension_for_SqlServer.Utility
+namespace SqlServerClrExtension.Utility
 {
     internal static class SqlStringUtility
     {
