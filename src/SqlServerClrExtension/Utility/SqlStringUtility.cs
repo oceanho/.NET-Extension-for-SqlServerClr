@@ -76,7 +76,28 @@ namespace SqlServerClrExtension.Utility
             if (IsAllNull(startDes, endDes)) return src;
             if (IsAllNull(src)) return SqlString.Null;
             string _s = src.Value;
-            return new SqlString(_s.TrimStart(startDes.Value).TrimEnd(endDes.Value));
+            if (!endDes.IsNull) _s = _s.TrimEnd(endDes.Value);
+            if (!startDes.IsNull) _s = _s.TrimStart(startDes.Value);
+            return new SqlString(_s);
+        }
+        #endregion
+
+        #region SqlString Base64 SqlClr Methods
+        internal static SqlString Base64Encode(SqlString input)
+        {
+            if (IsAllNull(input))
+                return SqlString.Null;
+            byte[] array = Encoding.UTF8.GetBytes(input.Value);
+            string result = Convert.ToBase64String(array);
+            return new SqlString(result);
+        }
+        internal static SqlString Base64Decode(SqlString input)
+        {
+            if (IsAllNull(input))
+                return SqlString.Null;
+            byte[] array = System.Convert.FromBase64String(input.Value);
+            string result = Encoding.UTF8.GetString(array);
+            return new SqlString(result);
         }
         #endregion
 
@@ -88,7 +109,7 @@ namespace SqlServerClrExtension.Utility
 
             if (IsAnyNull(input, pattern))
                 return SqlBoolean.False;
-            return input.Value.Equals(pattern.Value,StringComparison.CurrentCultureIgnoreCase) ? SqlBoolean.True :
+            return input.Value.Equals(pattern.Value, StringComparison.CurrentCultureIgnoreCase) ? SqlBoolean.True :
                 Regex.IsMatch(input.Value, pattern.Value, regexOption);
 
             // RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.Singleline

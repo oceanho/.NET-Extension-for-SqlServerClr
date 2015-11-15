@@ -60,12 +60,6 @@ namespace SqlServerClrExtension
         }
 
         [SqlFunction(DataAccess = DataAccessKind.None, SystemDataAccess = SystemDataAccessKind.None)]
-        public static SqlString TrimStartAndEnd(SqlString src, SqlChars des)
-        {
-            return SqlStringUtility.TrimStartAndEnd(src, des);
-        }
-
-        [SqlFunction(DataAccess = DataAccessKind.None, SystemDataAccess = SystemDataAccessKind.None)]
         public static SqlString TrimStartAndEnd(SqlString src, SqlChars startDes, SqlChars endDes)
         {
             return SqlStringUtility.TrimStartAndEnd(src, startDes, endDes);
