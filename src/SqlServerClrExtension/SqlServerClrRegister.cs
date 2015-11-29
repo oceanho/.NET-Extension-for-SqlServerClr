@@ -39,6 +39,15 @@ namespace SqlServerClrExtension
         }
         #endregion
 
+        #region 时间函数
+
+        [SqlFunction(DataAccess = DataAccessKind.None, SystemDataAccess = SystemDataAccessKind.None)]
+        public static SqlDouble GetPartTotalValue(SqlDateTime startDate, SqlDateTime finishDate, SqlString part)
+        {
+            return SqlStringUtility.GetPartTotalValue(startDate, finishDate, part);
+        }
+        #endregion
+
         #region Trim,TrimStart,TrimEnd,TrimStartAndEnd
 
         [SqlFunction(DataAccess = DataAccessKind.None, SystemDataAccess = SystemDataAccessKind.None)]
@@ -64,6 +73,6 @@ namespace SqlServerClrExtension
         {
             return SqlStringUtility.TrimStartAndEnd(src, startDes, endDes);
         }
-        #endregion        
+        #endregion
     }
 }

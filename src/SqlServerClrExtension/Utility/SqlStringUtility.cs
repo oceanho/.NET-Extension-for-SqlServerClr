@@ -82,6 +82,25 @@ namespace SqlServerClrExtension.Utility
         }
         #endregion
 
+        #region SqlString Date
+
+        internal static SqlDouble GetPartTotalValue(SqlDateTime startDate, SqlDateTime finishDate, SqlString part)
+        {
+            SqlDouble @return = SqlDouble.Zero;
+            if (IsAnyNull(part)) return @return;
+            if (IsAnyNull(startDate)) return @return;
+            if (IsAnyNull(finishDate)) return @return;
+            if (finishDate.Value < startDate.Value) return  @return;
+
+            if (part.Value.Equals("TotalDays", StringComparison.OrdinalIgnoreCase)) @return = new SqlDouble((finishDate.Value - startDate.Value).TotalDays);
+            if (part.Value.Equals("TotalHours", StringComparison.OrdinalIgnoreCase)) @return = new SqlDouble((finishDate.Value - startDate.Value).TotalHours);
+            if (part.Value.Equals("TotalMinutes", StringComparison.OrdinalIgnoreCase)) @return = new SqlDouble((finishDate.Value - startDate.Value).TotalMinutes);
+            if (part.Value.Equals("TotalSeconds", StringComparison.OrdinalIgnoreCase)) @return = new SqlDouble((finishDate.Value - startDate.Value).TotalSeconds);
+            if (part.Value.Equals("TotalMilliseconds", StringComparison.OrdinalIgnoreCase)) @return = new SqlDouble((finishDate.Value - startDate.Value).TotalMilliseconds);
+            return @return;
+        }
+        #endregion
+
         #region SqlString Base64 SqlClr Methods
         internal static SqlString Base64Encode(SqlString input)
         {
