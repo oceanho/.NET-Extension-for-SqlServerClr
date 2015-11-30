@@ -39,12 +39,18 @@ namespace SqlServerClrExtension
         }
         #endregion
 
-        #region 时间函数
+        #region DateFormator,GetPartTotalValue
 
         [SqlFunction(DataAccess = DataAccessKind.None, SystemDataAccess = SystemDataAccessKind.None)]
         public static SqlDouble GetPartTotalValue(SqlDateTime startDate, SqlDateTime finishDate, SqlString part)
         {
             return SqlStringUtility.GetPartTotalValue(startDate, finishDate, part);
+        }
+
+        [SqlFunction(DataAccess = DataAccessKind.None, SystemDataAccess = SystemDataAccessKind.None)]
+        public static SqlDateTime DateFormator(SqlDateTime date, SqlString formator)
+        {
+            return SqlStringUtility.DateFormator(date, formator);
         }
         #endregion
 
