@@ -100,7 +100,7 @@ WITH PERMISSION_SET=SAFE
 GO
 
 -- ===============================================================
--- Author:		hehai
+-- Author:		oceanho
 -- Create date: 2015-11-29 10:41:21
 -- Description:	通过SqlServer CLR 进行时间格式化处理，返回新的时间
 -- ===============================================================
@@ -116,7 +116,7 @@ GO
 
 
 -- ===============================================================
--- Author:		hehai
+-- Author:		oceanho
 -- Create date: 2015-11-29 10:41:21
 -- Description:	通过SqlServer CLR 进行时间格式化处理，返回字符串
 -- =============================================================
@@ -133,7 +133,7 @@ GO
 
 
 -- =============================================
--- Author:		hehai
+-- Author:		oceanho
 -- Create date: 2015-11-29 10:41:21
 -- Description:	通过SqlServer CLR 获取2个时间差指定partString部分的值
 /*
@@ -356,12 +356,12 @@ SELECT dbo.uF_SqlClr_Trim(N'何海 ',N'	') ---'何海 '
 
 SELECT dbo.uF_SqlClr_StartsWith(N'abcdef',N'何',3)
 SELECT dbo.uF_SqlClr_EndsWith(N'abcdef',N'f',3)
-SELECT LEN( dbo.uF_SqlClr_Trim(N'hehai ',N' ') )
+SELECT LEN( dbo.uF_SqlClr_Trim(N'oceanho ',N' ') )
 */
 
 
 -- =============================================
--- Author:		hehai
+-- Author:		oceanho
 -- Create date: 2015-11-29 10:41:21
 -- 通过SqlServer CLR 获取2个时间之间的总天数差值
 /*
@@ -385,7 +385,7 @@ END
 GO
 
 -- =============================================
--- Author:		hehai
+-- Author:		oceanho
 -- Create date: 2015-11-29 10:41:21
 -- Description:	通过SqlServer CLR 获取2个时间之间的总小时差值
 /*
@@ -408,7 +408,7 @@ END
 GO
 
 -- =============================================
--- Author:		hehai
+-- Author:		oceanho
 -- Create date: 2015-11-29 10:41:21
 -- Description:	通过SqlServer CLR 获取2个时间之间的总分钟差值
 /*
@@ -431,7 +431,7 @@ END
 GO
 
 -- =============================================
--- Author:		hehai
+-- Author:		oceanho
 -- Create date: 2015-11-29 10:41:21
 -- Description:	通过SqlServer CLR 获取2个时间之间的总秒差值
 /*
@@ -454,7 +454,7 @@ END
 GO
 
 -- =============================================
--- Author:		hehai
+-- Author:		oceanho
 -- Create date: 2015-11-29 10:41:21
 -- Description:	通过SqlServer CLR 获取2个时间之间的总毫秒差值
 /*
