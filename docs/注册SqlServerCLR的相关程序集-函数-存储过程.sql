@@ -91,6 +91,22 @@ FROM 0x4D5A90000300000004000000FFFF0000B8000000000000004000000000000000000000000
 WITH PERMISSION_SET=SAFE
 GO
 
+-- =================================================
+-- Author:		hehai
+-- Create date: 2015-11-29 10:41:21
+-- Description:	通过SqlServer CLR 进行时间格式化处理
+-- =================================================
+CREATE FUNCTION uf_Clr_DateFormator
+(	
+	@date AS DATETIME,							-- 指定时间
+	@formator AS NVARCHAR(50)					-- CSharp支持的时间格式化字符
+)
+RETURNS DOUBLE PRECISION
+AS 
+	EXTERNAL NAME [SqlClrExtension].[SqlServerClrExtension.SqlServerClrRegister].[DateFormator]; 	
+GO
+
+
 -- =============================================
 -- Author:		hehai
 -- Create date: 2015-11-29 10:41:21
