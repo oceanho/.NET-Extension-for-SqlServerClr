@@ -108,6 +108,13 @@ namespace SqlServerClrExtension.Utility
             @return = new SqlDateTime(DateTime.Parse(@return.Value.ToString(formator.Value)));
             return @return;
         }
+
+        internal static SqlString DateFormatorAsString(SqlDateTime date, SqlString formator)
+        {
+            if (IsAnyNull(date)) return SqlString.Null;
+            if (IsAnyNull(formator)) return date.Value.ToString("yyyy/MM/dd HH:mm:ss");
+            return new SqlString(date.Value.ToString(formator.Value));
+        }
         #endregion
 
         #region SqlString Base64 SqlClr Methods

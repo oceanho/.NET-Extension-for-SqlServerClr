@@ -52,6 +52,12 @@ namespace SqlServerClrExtension
         {
             return SqlStringUtility.DateFormator(date, formator);
         }
+
+        [SqlFunction(DataAccess = DataAccessKind.None, SystemDataAccess = SystemDataAccessKind.None)]
+        public static SqlString DateFormatorAsString(SqlDateTime date, SqlString formator)
+        {
+            return SqlStringUtility.DateFormatorAsString(date, formator);
+        }
         #endregion
 
         #region Trim,TrimStart,TrimEnd,TrimStartAndEnd
